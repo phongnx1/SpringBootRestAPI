@@ -1,6 +1,6 @@
 version: '3'
 services:
   spring-crud-demo:
-    build: .
+    image: demo_spring-crud-demo:latest
     ports:
       - "8081:8080"

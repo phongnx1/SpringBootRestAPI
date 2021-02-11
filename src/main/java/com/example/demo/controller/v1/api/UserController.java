@@ -35,12 +35,13 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "*")
     @GetMapping("/users/all")
     public List<User> getAllUsers() {
          return userRepository.findAll();
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/users/")
     public List<User> getAllUsersPaging(
       @RequestParam(defaultValue = "1") Integer page
@@ -49,7 +50,7 @@ public class UserController {
          return userRepository.findAllUsers(paging);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "*")
     @GetMapping("/users/{id}")
     public ResponseEntity<User> getUserById(
       @PathVariable(value = "id") Long userId) throws ResourceNotFoundException {
@@ -58,13 +59,13 @@ public class UserController {
         return ResponseEntity.ok().body(user);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "*")
     @PostMapping("/users")
     public User createUser(@Validated @RequestBody User user) {
         return userRepository.save(user);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "*")
     @PutMapping("/users/{id}")
     public ResponseEntity<User> updateUser(
       @PathVariable(value = "id") Long userId,
@@ -82,7 +83,7 @@ public class UserController {
         return ResponseEntity.ok(updatedUser);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "*")
     @DeleteMapping("/users/{id}")
     public Map<String, Boolean> deleteUser(
          @PathVariable(value = "id") Long userId) throws ResourceNotFoundException {

@@ -1,12 +1,13 @@
 # Spring Boot CRUD Demo
 
-## Build
+## Prod Deployment - Standdlone Application
+### Build
 ```
 mvn clean package
 ```
 
-## Run
-java -jar target/demo-0.0.1-SNAPSHOT.jar
+### Run
+java -Dproperty.name="application-prod.properties" -jar target/spring-crud-demo.jar
 
-## Navigate to your browser with
-`http://localhost:8080/`
+### Navigate to your browser with
+`http://domain:8080/api/v1/users/all`
